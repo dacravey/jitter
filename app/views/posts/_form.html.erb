@@ -1,0 +1,8 @@
+<%= render "layouts/errors", object: @post %>
+
+<%= form_for @post, remote: true do |f| %>
+  <%= f.label :post %>
+  <%= f.text_area :post, class: 'form-control', size: "30x6", required: true, autofocus: true %>
+  <br>
+  <%= f.submit class: 'btn btn-success', method: "update" %>
+<% end %>

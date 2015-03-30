@@ -1,18 +1,12 @@
 <h1>Welcome to Jitter!</h1>
 
-<%= link_to "Add Post", new_post_path %>
+<%= link_to "Add Post", new_post_path, id: "new_link", remote: true %>
 
 <% if @posts.any? %>
   <h4>Here are some posts:</h4>
-  <ul>
-    <% @posts.each do |post| %>
-      <li>
-        <hr>
-        <%= post.post %>
-        <hr>
-      </li>
-    <% end %>
-  </ul>
+  <div id="feed">
+    <%= render @posts %>
+  </div>
 <% else %>
   <p>There are no posts yet!</p>
 <% end %>

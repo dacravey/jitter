@@ -5,15 +5,20 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post - Post.new
+    @post = Post.new
   end
 
   def create
     @user = User.find(current_user.id)
-    @post = @user.posts.new(posts_params)
+    @post = @user.posts.new(post_params)
     if @post.save
-      flash[:success] = "Post succesfully added"
-      redirect_to root_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Post successfully added"
+          redirect_to root_path
+        end
+        format.js
+      end
     else
       flash[:danger] = "There was a problem creating your listing, please try again."
       render :new
