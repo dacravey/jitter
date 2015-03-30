@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "users#index"
+  devise_for :users
+
+  resources :posts, except: :index
+  resources :users, only: :show
 end
