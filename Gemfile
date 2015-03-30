@@ -30,4 +30,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'poltergeist'
 end

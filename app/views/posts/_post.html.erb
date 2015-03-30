@@ -1,4 +1,9 @@
 <hr>
 <%= post.user.email %><br>
 <%= post.post %>
+<% if current_user = @user %>
+  <%= link_to "DELETE", post_path(post.id), class: "btn btn-xs btn-danger",
+                                            data: {confirm: "You sure?",
+                                                   method: 'delete'}%>
+<% end %>
 <hr>

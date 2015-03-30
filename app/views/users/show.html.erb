@@ -1,0 +1,10 @@
+<h1><%= @user.email %></h1>
+
+<% if @user.posts.any? %>
+  <h4>Here are some posts:</h4>
+  <div id="feed">
+    <%= render @user.posts %>
+  </div>
+<% else %>
+  <p>There are no posts yet!</p>
+<% end %>
